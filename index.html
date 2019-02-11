@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>テスト</title>
-    <meta name="description" content="最後の崖" />
+    <title>面白映画選択</title>
+    <meta name="description" content="面白そうな映画を選んでください" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="最後の崖" />
+    <meta property="og:title" content="面白映画選択" />
     <meta property="og:image" content="/img/icon.png" />
     <meta property="og:url" content="http://example.net/" />
-    <meta property="og:site_name" content="最後の崖" />
-    <meta property="og:description" content="最後の崖" />
+    <meta property="og:site_name" content="面白映画選択" />
+    <meta property="og:description" content="面白そうな映画を選んでください" />
 
     <meta name="robots" content="noarchive">
 
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="./css/reboot.css">
     <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/Loading.css">
   </head>
   <body>
     <header id="header" class="header">
@@ -33,7 +34,8 @@
         </div>
       </div>
       <div class="container">
-        <div class="movie-contents">
+        <div v-show="loading" class="loader">Loading...</div>
+        <div v-show="!loading" class="movie-contents">
           <div class="movie" v-for="result in results">
             <div class="img-container movie-img">
               <img v-bind:src="result.img_link" class="img">

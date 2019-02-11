@@ -6,7 +6,8 @@ var app = new Vue({
     url: 'https://159oyrsgc0.execute-api.ap-northeast-1.amazonaws.com/lt_test', // v-model="url"の初期値
     selected_movie: {},
     param: "{}",              // v-model="param"の初期値
-    results: []               // v-model="result"の初期値
+    results: [],              // v-model="result"の初期値
+    loading: true
   },
   mounted() {　  //v-on:click="hoge"などのイベントに紐づく関数定義
     // Axiosを使ったAJAX
@@ -27,6 +28,7 @@ var app = new Vue({
       .then(function(res) {
         // vueにバインドされている値を書き換えると表示に反映される
         app.results = JSON.parse(res.data['body'])[0]['results'];
+        app.loading = false;
         console.log(app.results);
       })
       .catch(function(res){
