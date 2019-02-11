@@ -93,6 +93,14 @@ body {
   display: none;
 }
 
+.re-loading {
+  margin-top: 30px;
+}
+
+.re-loading-text {
+  margin-left: 10px;
+}
+
 @media screen and (max-width: 768px) {
   .br {
     display: block;

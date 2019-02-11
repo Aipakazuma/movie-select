@@ -9,33 +9,41 @@ var app = new Vue({
     results: [],              // v-model="result"の初期値
     loading: true
   },
-  mounted() {　  //v-on:click="hoge"などのイベントに紐づく関数定義
-    // Axiosを使ったAJAX
-    // リクエスト時のオプションの定義
-    config = {
-      headers:{
-        'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type':'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:8000'
-      },
-      withCredentials: true,
-    }
-    // vueでバインドされた値はmethodの中ではthisで取得できる
-    param = JSON.parse(this.param)
+  mounted: function() {
+    this.get();
+  },
+  methods: {
+    get: function(event) {
+      // Axiosを使ったAJAX
+      // リクエスト時のオプションの定義
+      config = {
+        headers:{
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type':'application/json',
+          'Access-Control-Allow-Origin': 'http://localhost:8000'
+        },
+        withCredentials: true,
+      }
+      // vueでバインドされた値はmethodの中ではthisで取得できる
+      param = JSON.parse(this.param)
 
-    // Ajaxリクエスト
-    axios.get(this.url, param, config)
-      .then(function(res) {
-        // vueにバインドされている値を書き換えると表示に反映される
-        app.results = JSON.parse(res.data['body'])[0]['results'];
-        app.loading = false;
-        console.log(app.results);
-      })
-      .catch(function(res){
-        // vueにバインドされている値を書き換えると表示に反映される
-　　　  app.result = res.data;
-        console.log(res);
-      });
+      // Ajaxリクエスト
+      axios.get(this.url, param, config)
+        .then(function(res) {
+          // vueにバインドされている値を書き換えると表示に反映される
+          app.results = JSON.parse(res.data['body'])[0]['results'];
+          app.loading = false;
+          console.log(app.results);
+        })
+        .catch(function(res){
+          // vueにバインドされている値を書き換えると表示に反映される
+  　　　  app.result = res.data;
+          console.log(res);
+        });
+    },
+    reLoading: function(event) {
+      this.get(event);
+    }
   }
 });
 
