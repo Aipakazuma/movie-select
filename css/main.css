@@ -1,19 +1,30 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+  background: #ffeb00;
+}
+
 .container {
-  max-width: 1200px;
+  max-width: 800px;
   margin: auto;
   width: 100%;
   text-align: center;
   padding: 0 0 25px;
 }
 
+.contents-frame {
+  border: 5px solid #000;
+  padding: 10px;
+  background: #fff;
+}
+
 .contents {
 }
 
 .header-h1 {
+  font-size: 4em;
 }
 
 .contents-h1 {
-  padding-bottom: 20px;
 }
 
 .movie-contents {
@@ -47,11 +58,43 @@
 }
 
 .button {
-  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #fff;
+  border: solid 2px #008c34;
   border-radius: 3px;
+  transition: .4s;
+  background: #008c34;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button:active,
+.button:hover {
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+}
+
+.explain {
+  text-align: center; 
+  margin: 0px 5px;
+}
+
+.w100 {
   width: 100%;
-  padding: 5px;
 }
 
 .footer {
+}
+
+.br {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .br {
+    display: block;
+  }
 }

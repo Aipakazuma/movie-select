@@ -19,35 +19,49 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="./css/reboot.css">
     <link rel="stylesheet" type="text/css" href="./css/main.css">
-    <link rel="stylesheet" type="text/css" href="./css/colors.css">
-    <link rel="stylesheet" type="text/css"  href="./css/modal.css">
   </head>
   <body>
     <header id="header" class="header">
       <div class="container">
-        <h1 class="header-h1">テスト</h1>
+        <h1 class="header-h1">面白映画<br class="br">選択</h1>
       </div>
     </header>
     <section id="app" class="contents">
       <div class="container">
-        <h1 class="contents-h1">面白そうな映画を選んでください</h1>
+        <div class="contents-frame">
+          <h1 class="contents-h1">面白そうな映画を選んでください</h1>
+        </div>
+      </div>
+      <div class="container">
         <div class="movie-contents">
-          <div class="movie">
+          <div class="movie" v-for="result in results">
             <div class="img-container movie-img">
-              <img src="" class="img dummy-img">
+              <img v-bind:src="result.img_link" class="img">
             </div>
-            <button class="movie-title button">映画タイトル</button>
-          </div>
-          <div class="movie">
-            <div class="img-container movie-img">
-              <img src="" class="img dummy-img">
-            </div>
-            <button class="movie-title button">映画タイトル</button>
+            <button class="movie-title button w100">{{ result.title }}</button>
           </div>
         </div>
       </div>
+      <div class="container">
+        <div class="explain-contents contents-frame">
+          <h2>このサイトについて</h2>
+          <div class="explain">
+            <p>Webサイト利用により収集されたデータは、Webサイト作成者が利用いたします。ご了承ください。</p>
+            <p>個人を特定するなどトラッキングなどは行いません。</p>
+            <p>表示されているデータは、Web上でクロールし収集したデータです。お問い合わせについては下記へ.</p>
+          </div>
+          <a href="#" target="_blank" class="button" >お問い合わせフォーム</a>
+        </div>
+      </div>
+    </div>
     </section>
     <footer id="footer" class="footer">
+      <div class="container">
+        <address class="address">&copy; 2019 commander aipa, Allright Reserved.</address>
+      </div>
     </footer>
+    <script src="https://npmcdn.com/vue@2.5.17/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html
