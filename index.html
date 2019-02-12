@@ -41,7 +41,7 @@
             <div class="img-container movie-img">
               <img v-bind:src="result.img_link" class="img">
             </div>
-            <button class="movie-title button w100">{{ result.title }}</button>
+            <button class="movie-title button w100" v-on:click="post(result.title)">{{ result.title }}</button>
           </div>
         </div>
         <button v-on:click="reLoading" class="re-loading button">

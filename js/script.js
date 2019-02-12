@@ -25,7 +25,7 @@ var app = new Vue({
         withCredentials: true,
       }
       // vueでバインドされた値はmethodの中ではthisで取得できる
-      param = JSON.parse(this.param)
+      param = JSON.parse(this.param);
 
       // Ajaxリクエスト
       axios.get(this.url, param, config)
@@ -40,6 +40,31 @@ var app = new Vue({
   　　　  app.result = res.data;
           console.log(res);
         });
+    },
+    post: function(clicked_title) {
+      config = {
+        headers:{
+          // 'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type':'application/json',
+          // 'Access-Control-Allow-Origin': 'http://localhost:8000'
+        },
+        // withCredentials: true,
+      }
+      _param = {
+        'title1': app.results[0].title,
+        'title2': app.results[1].title,
+        'clicked': app.results[0].title == clicked_title ? 0 : 1
+      };
+      param = JSON.stringify(_param);
+      axios.post(this.url, param, config)
+        .then(function(res) {
+          console.log(res);
+        })
+        .catch(function(res) {
+          console.log(res);
+        });
+
+      this.reLoading();
     },
     reLoading: function(event) {
       app.loading = true;
