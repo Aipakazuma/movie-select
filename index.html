@@ -45,7 +45,7 @@
           </div>
         </div>
         <button v-on:click="reLoading" class="re-loading button">
-          <i class="fas fa-spinner"></i>
+          <i v-bind:class="{ 'fa-spin': loading }" class="fas fa-spinner"></i>
           <span class="re-loading-text">再読込</span>
         </button>
       </div>
@@ -54,7 +54,7 @@
           <h2>このサイトについて</h2>
           <div class="explain">
             <p>Webサイト利用により収集されたデータは、Webサイト作成者が利用いたします。ご了承ください。</p>
-            <p>個人を特定するなどトラッキングなどは行いません。</p>
+            <p>個人を特定するなどトラッキングは行いません。</p>
             <p>表示されているデータは、Web上でクロールし収集したデータです。お問い合わせについては下記へ.</p>
           </div>
           <a href="#" target="_blank" class="button" >お問い合わせフォーム</a>

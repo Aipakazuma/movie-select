@@ -10,7 +10,7 @@ var app = new Vue({
     loading: true
   },
   mounted: function() {
-    this.get();
+    setTimeout(this.get, 1000);
   },
   methods: {
     get: function(event) {
@@ -42,7 +42,8 @@ var app = new Vue({
         });
     },
     reLoading: function(event) {
-      this.get(event);
+      app.loading = true;
+      setTimeout(this.get, 3000);
     }
   }
 });
